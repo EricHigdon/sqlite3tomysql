@@ -12,11 +12,11 @@ def this_line_is_useless(line):
         'PRAGMA foreign_keys=OFF'
         ]
     for useless in useless_es:
-        if re.search(useless, line):
+        if useless in line:
                 return True
 
 def has_primary_key(line):
-    return bool(re.search(r'PRIMARY KEY', line))
+    return 'PRIMARY KEY' in line
 
 searching_for_end = False
 for line in fileinput.input():
